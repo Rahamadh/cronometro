@@ -21,6 +21,31 @@ function iniciaRelogio(){
     },1000);
 }
 
+document.addEventListener('click',function(e){
+const elemento = e.target;
+
+if(elemento.classList.contains('start')){
+    relogio.classList.remove('pausado');
+ iniciaRelogio();
+}
+
+if(elemento.classList.contains('pause')){
+    clearInterval(timer);
+    relogio.classList.add('pausado');
+}
+if(elemento.classList.contains('reset')){
+    relogio.classList.remove('pausado');
+    clearInterval(timer);
+    segundos = 0;
+    relogio.innerHTML = '00:00:00';
+}
+
+
+});
+
+
+
+/*
 start.addEventListener('click',function(event){
     relogio.classList.remove('pausado');
  iniciaRelogio();
@@ -32,10 +57,11 @@ pause.addEventListener('click',function(){
 })
 
 reset.addEventListener('click', function(event){
+    relogio.classList.remove('pausado');
     clearInterval(timer);
     segundos = 0;
     relogio.innerHTML = '00:00:00';
 });
 
-
+*/
 
